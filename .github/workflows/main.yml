@@ -1,0 +1,59 @@
+name: Doomsday Watcher
+
+on:
+  schedule:
+    - cron: "7,17,27,37,47,57 * * * *"
+
+  workflow_dispatch:
+    inputs:
+      test_discord:
+        description: "Wyślij tylko testową wiadomość na Discord"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: doomsday-watcher
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Pobierz repozytorium
+        uses: actions/checkout@v4
+
+      - name: Ustaw Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Uruchom Obserwatora
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          CINEMA_CITY_SITE_ID: ${{ vars.CINEMA_CITY_SITE_ID }}
+        run: |
+          if [ "${{ inputs.test_discord }}" = "true" ]; then
+            python watcher.py --test-discord
+          else
+            python watcher.py --state state/seen.json
+          fi
+
+      - name: Zapisz nowy stan
+        if: ${{ inputs.test_discord != true }}
+        run: |
+          if git diff --quiet -- state/seen.json; then
+            echo "Brak zmian stanu."
+            exit 0
+          fi
+
+          git config user.name "Obserwator"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/seen.json
+          git commit -m "chore: update watcher state"
+          git push
