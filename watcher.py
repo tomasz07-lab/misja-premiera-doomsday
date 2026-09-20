@@ -475,12 +475,12 @@ def main():
 
     new_events = [event for eid, event in current.items() if eid not in seen]
 
-    print(
+        print(
         f"Dopasowane seanse: {len(current)}. "
         f"Nowe względem historii: {len(new_events)}."
     )
 
-        if new_events:
+    if new_events:
         send_discord(webhook, new_events)
         print("Wysłano alert na Discord.")
         for event in new_events:
@@ -497,6 +497,7 @@ def main():
         print("Aktualizuję heartbeat stanu, aby repo zachowało aktywność.")
 
     new_state = json.dumps(state, sort_keys=True)
+
     if new_state != old_state:
         save_state(args.state, state)
         print("Stan został zaktualizowany.")
@@ -505,6 +506,5 @@ def main():
 
     return 0
 
-
-if __name__ == "__main__":
+    if __name__ == "__main__":
     sys.exit(main())
