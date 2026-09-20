@@ -454,6 +454,7 @@ def main():
     args = parser.parse_args()
 
     webhook = os.environ.get("DISCORD_WEBHOOK_URL")
+
     if not webhook:
         raise SystemExit(
             "Brakuje DISCORD_WEBHOOK_URL. Dodaj webhook jako GitHub Actions secret."
@@ -473,9 +474,13 @@ def main():
     current = collect(site_id)
     seen = state.get("seen", {})
 
-    new_events = [event for eid, event in current.items() if eid not in seen]
+    new_events = [
+        event
+        for eid, event in current.items()
+        if eid not in seen
+    ]
 
-        print(
+    print(
         f"Dopasowane seanse: {len(current)}. "
         f"Nowe względem historii: {len(new_events)}."
     )
@@ -483,8 +488,10 @@ def main():
     if new_events:
         send_discord(webhook, new_events)
         print("Wysłano alert na Discord.")
+
         for event in new_events:
             seen[event["id"]] = event
+
         state["seen"] = seen
 
     if status_report_due(state):
@@ -493,8 +500,14 @@ def main():
         print("Wysłano dzienny raport kontrolny na Discord.")
 
     if heartbeat_due(state):
-        state["heartbeat"] = now_local().replace(microsecond=0).isoformat()
-        print("Aktualizuję heartbeat stanu, aby repo zachowało aktywność.")
+        state["heartbeat"] = now_local().replace(
+            microsecond=0
+        ).isoformat()
+
+        print(
+            "Aktualizuję heartbeat stanu, "
+            "aby repo zachowało aktywność."
+        )
 
     new_state = json.dumps(state, sort_keys=True)
 
@@ -506,5 +519,6 @@ def main():
 
     return 0
 
-    if __name__ == "__main__":
+
+if __name__ == "__main__":
     sys.exit(main())
