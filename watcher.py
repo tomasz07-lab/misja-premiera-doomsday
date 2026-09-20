@@ -194,24 +194,62 @@ def normalized_attrs(event):
 
 def is_polish_dub(event, film):
     attrs = normalized_attrs(event)
-    if any("dub" in a for a in attrs):
-        return True
 
-    # Fallback, gdy API zmieni sposób opisu wersji językowej.
+    values = [
+        event.get("language"),
+        event.get("version"),
+        event.get("name"),
+        film.get("name"),
+    ]
+
     text = " ".join(
         normalize(v)
-        for v in [
-            event.get("language"),
-            event.get("version"),
-            event.get("name"),
-            film.get("name"),
-        ]
+        for v in values
         if v
     )
-    return ("dubbing" in text or "dubbed" in text) and (
-        "pl" in text or "pol" in text
+
+    attr_text = " ".join(attrs)
+    combined = f"{attr_text} {text}"
+
+    # Musi to być jakiś rodzaj dubbingu.
+    has_dubbing = (
+        "dubbed" in combined
+        or "dubbing" in combined
+        or any("dub" in a for a in attrs)
     )
 
+    if not has_dubbing:
+        return False
+
+    # Odrzucamy wyraźnie ukraiński dubbing.
+    ukrainian_markers = (
+        "ukrainski",
+        "ukrainian",
+        "dubbing uk",
+        "dubbed uk",
+        "dub-uk",
+        "dub_uk",
+    )
+
+    if any(marker in combined for marker in ukrainian_markers):
+        return False
+
+    # Jeżeli API jawnie mówi, że to polski dubbing.
+    polish_markers = (
+        "dubbing pl",
+        "dubbed pl",
+        "polski",
+        "polish",
+        "dub-pl",
+        "dub_pl",
+    )
+
+    if any(marker in combined for marker in polish_markers):
+        return True
+
+    # Na polskiej stronie Cinema City zwykły "dubbed" bez oznaczenia
+    # innego języka traktujemy jako polski dubbing.
+    return True
 
 def is_2d(event):
     attrs = normalized_attrs(event)
