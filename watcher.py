@@ -480,18 +480,18 @@ def main():
         f"Nowe względem historii: {len(new_events)}."
     )
 
-    if new_events:
+        if new_events:
         send_discord(webhook, new_events)
         print("Wysłano alert na Discord.")
         for event in new_events:
             seen[event["id"]] = event
         state["seen"] = seen
-        
+
     if status_report_due(state):
-    send_status_report(webhook, current, site_id)
-    state["last_status_date"] = now_local().date().isoformat()
-    print("Wysłano dzienny raport kontrolny na Discord.")
-    
+        send_status_report(webhook, current, site_id)
+        state["last_status_date"] = now_local().date().isoformat()
+        print("Wysłano dzienny raport kontrolny na Discord.")
+
     if heartbeat_due(state):
         state["heartbeat"] = now_local().replace(microsecond=0).isoformat()
         print("Aktualizuję heartbeat stanu, aby repo zachowało aktywność.")
