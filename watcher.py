@@ -93,6 +93,7 @@ def load_state(path):
     state.setdefault("site_id", None)
     state.setdefault("seen", {})
     state.setdefault("heartbeat", None)
+    state.setdefault("last_status_date", None)
     return state
 
 
@@ -350,7 +351,91 @@ def send_discord(webhook_url, events, test=False):
         if resp.status not in (200, 204):
             raise RuntimeError(f"Discord odpowiedział HTTP {resp.status}")
 
+def status_report_due(state):
+    now = now_local()
 
+    # Raport wysyłamy dopiero po 08:00 czasu polskiego.
+    if now.hour < 8:
+        return False
+
+    today = now.date().isoformat()
+    return state.get("last_status_date") != today
+
+
+def send_status_report(webhook_url, current, site_id):
+    now = now_local()
+
+    if current:
+        ticket_status = f"🎟️ Wykryto **{len(current)}** pasujące seanse."
+    else:
+        ticket_status = "🔎 Na razie **brak biletów**."
+
+    payload = {
+        "username": "Obserwator",
+        "embeds": [
+            {
+                "title": "🟢 Obserwator działa",
+                "description": ticket_status,
+                "fields": [
+                    {
+                        "name": "🎬 Film",
+                        "value": "Avengers: Doomsday",
+                        "inline": True
+                    },
+                    {
+                        "name": "📍 Kino",
+                        "value": "Cinema City Zakopianka",
+                        "inline": True
+                    },
+                    {
+                        "name": "🎥 Wersja",
+                        "value": "2D • Dubbing PL",
+                        "inline": True
+                    },
+                    {
+                        "name": "🕐 Ostatnia kontrola",
+                        "value": now.strftime("%d.%m.%Y • %H:%M"),
+                        "inline": True
+                    },
+                    {
+                        "name": "🌐 Cinema City API",
+                        "value": f"Połączenie OK • SITE_ID `{site_id}`",
+                        "inline": True
+                    },
+                    {
+                        "name": "🔄 Monitoring",
+                        "value": "około co 10 minut",
+                        "inline": True
+                    }
+                ],
+                "footer": {
+                    "text": "Codzienny raport • Misja: Premiera Doomsday"
+                }
+            }
+        ],
+        "allowed_mentions": {
+            "parse": []
+        }
+    }
+
+    data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+
+    req = urllib.request.Request(
+        webhook_url,
+        data=data,
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": UA
+        },
+        method="POST"
+    )
+
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        if resp.status not in (200, 204):
+            raise RuntimeError(
+                f"Discord odpowiedział HTTP {resp.status}"
+            )
+            
 def heartbeat_due(state):
     previous = state.get("heartbeat")
     if not previous:
@@ -401,7 +486,12 @@ def main():
         for event in new_events:
             seen[event["id"]] = event
         state["seen"] = seen
-
+        
+    if status_report_due(state):
+    send_status_report(webhook, current, site_id)
+    state["last_status_date"] = now_local().date().isoformat()
+    print("Wysłano dzienny raport kontrolny na Discord.")
+    
     if heartbeat_due(state):
         state["heartbeat"] = now_local().replace(microsecond=0).isoformat()
         print("Aktualizuję heartbeat stanu, aby repo zachowało aktywność.")
