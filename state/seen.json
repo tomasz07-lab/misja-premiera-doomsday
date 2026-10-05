@@ -20,6 +20,306 @@
       "sold_out": false,
       "presentation_code": "1733312",
       "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733315": {
+      "id": "1733315",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-16T12:20:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733315",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733317": {
+      "id": "1733317",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-16T16:00:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733317",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733318": {
+      "id": "1733318",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-16T19:40:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733318",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733348": {
+      "id": "1733348",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-17T12:20:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733348",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733349": {
+      "id": "1733349",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-17T16:00:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733349",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733350": {
+      "id": "1733350",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-17T19:40:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733350",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733356": {
+      "id": "1733356",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-18T12:20:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733356",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733357": {
+      "id": "1733357",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-18T16:00:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733357",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733358": {
+      "id": "1733358",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-18T19:40:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733358",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733366": {
+      "id": "1733366",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-19T12:20:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733366",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733368": {
+      "id": "1733368",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-19T16:00:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733368",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733370": {
+      "id": "1733370",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-19T19:40:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733370",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733367": {
+      "id": "1733367",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-20T12:20:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733367",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733369": {
+      "id": "1733369",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-20T16:00:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733369",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    },
+    "1733371": {
+      "id": "1733371",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-20T19:40:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733371",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
     }
   },
   "heartbeat": "2026-10-05T02:02:58+02:00",
