@@ -1,6 +1,27 @@
 {
   "site_id": "10103",
-  "seen": {},
+  "seen": {
+    "1733312": {
+      "id": "1733312",
+      "film": "Avengers: Doomsday",
+      "datetime": "2026-12-16T00:01:00",
+      "auditorium": "Sala 7",
+      "attrs": [
+        "2d",
+        "action",
+        "adventure",
+        "dubbed",
+        "dubbed-lang-pl",
+        "laser-barco",
+        "na",
+        "original-lang-en",
+        "sci-fi"
+      ],
+      "sold_out": false,
+      "presentation_code": "1733312",
+      "film_link": "https://www.cinema-city.pl/filmy/avengers-doomsday/7879s2r"
+    }
+  },
   "heartbeat": "2026-10-05T02:02:58+02:00",
   "last_status_date": "2026-10-05"
 }
